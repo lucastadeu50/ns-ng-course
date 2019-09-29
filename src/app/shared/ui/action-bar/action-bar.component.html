@@ -1,0 +1,9 @@
+<ActionBar [title]="title" (loaded)="onLoadedActionBar()">
+    <NavigationButton text="Back" android.systemIcon="ic_menu_back" *ngIf="canGoBack" (tap)="onGoBack()">
+    </NavigationButton>
+    <NavigationButton icon="res://menu_black"> </NavigationButton>
+
+    <ActionItem ios.position="left">
+        <label text="MENU"></label>
+    </ActionItem>
+</ActionBar>
