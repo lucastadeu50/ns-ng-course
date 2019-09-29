@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { isAndroid, isIOS, device, screen } from "tns-core-modules/platform";
 import { Page } from "tns-core-modules/ui/page/page";
 import { RouterExtensions } from "nativescript-angular/router";
+import { UIService } from "../../ui.service";
 declare var android: any;
 
 @Component({
@@ -10,7 +11,7 @@ declare var android: any;
     styleUrls: ["./action-bar.component.css"]
 })
 export class ActionBarComponent implements OnInit {
-    constructor(private page: Page, private router: RouterExtensions) {}
+    constructor(private page: Page, private router: RouterExtensions, private uiService: UIService) {}
 
     @Input() title: string;
     @Input() showBackButton = true;
@@ -40,5 +41,8 @@ export class ActionBarComponent implements OnInit {
                 );
             }
         }
+    }
+    onToggleMenu(){
+        this.uiService.toggleDrawer();
     }
 }
