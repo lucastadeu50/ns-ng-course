@@ -8,7 +8,7 @@ export class UIService {
         return this._drawerState.asObservable();
     }
     toggleDrawer(){
-        this._drawerState.next();
+        this._drawerState.next(null);
     }
 
 }
