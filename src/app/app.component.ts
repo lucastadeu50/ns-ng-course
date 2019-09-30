@@ -17,7 +17,8 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
     templateUrl: "./app.component.html"
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
-    @ViewChild(RadSideDrawerComponent , { static: true }) drawerComponent: RadSideDrawerComponent;
+    @ViewChild(RadSideDrawerComponent, { static: true })
+    drawerComponent: RadSideDrawerComponent;
 
     activeChallenge = "";
     private drawerSub: Subscription;
@@ -37,12 +38,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     ngOnInit() {
         this.drawerSub = this.uiService.drawerState.subscribe(() => {
-            this.drawerComponent.sideDrawer
+            this.drawerComponent.sideDrawer;
             if (this.drawer) {
-               this.drawer.toggleDrawerState();
-
+                this.drawer.toggleDrawerState();
             }
         });
+    }
+    onLogout(){
+        this.uiService.toggleDrawer();
     }
 
     onChallengeInput(challengeDescription: string) {
