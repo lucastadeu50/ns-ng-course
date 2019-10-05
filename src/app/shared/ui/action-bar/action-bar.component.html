@@ -7,4 +7,5 @@
     <ActionItem *ngIf="!android && hasMenu " ios.position="left" (tap)="onToggleMenu()">
         <label text="MENU"></label>
     </ActionItem>
+    <ng-content></ng-content>
 </ActionBar>
