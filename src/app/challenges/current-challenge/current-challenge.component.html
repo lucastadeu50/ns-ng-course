@@ -1,10 +1,6 @@
 <ns-action-bar title="Current Challenge" [showBackButton]="false"></ns-action-bar>
 <StackLayout>
-  <Label
-    class="title"
-    text="The current challenge"
-    horizontalAlignment="center"
-  ></Label>
+  <Label class="title" text="The current challenge" horizontalAlignment="center"></Label>
   <Button text="Edit" (tap)="onEdit()"></Button>
-
+  <Button text="Replace" nsRouterLink="/challenges/replace"></Button>
 </StackLayout>
