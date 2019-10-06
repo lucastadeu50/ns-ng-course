@@ -4,7 +4,8 @@ import {
     OnDestroy,
     ViewChild,
     AfterViewInit,
-    ChangeDetectorRef
+    ChangeDetectorRef,
+    ViewContainerRef
 } from "@angular/core";
 import { UIService } from "./shared/ui.service";
 import { Subscriber, Subscription } from "rxjs";
@@ -26,7 +27,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     constructor(
         private uiService: UIService,
-        private changeDetectorRef: ChangeDetectorRef
+        private changeDetectorRef: ChangeDetectorRef,
+        private vcRef: ViewContainerRef
     ) {}
     ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;
@@ -43,6 +45,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.drawer.toggleDrawerState();
             }
         });
+        this.uiService.setRootVCRef(this.vcRef)
     }
     onLogout(){
         this.uiService.toggleDrawer();
